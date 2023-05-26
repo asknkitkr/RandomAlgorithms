@@ -1,0 +1,49 @@
+Explanation: RandomSearchAlgorithm(int[] arr, int k)
+1. In this implementation, the RandomSearch method takes an array arr and an element k as input. 
+2. It uses a Random object to generate random indices within the range of the array. 
+3. It continuously picks a random element from the array and checks if it matches the target element k. 
+4. If a match is found, it returns the position of that element. 
+5. If the element is not equal to k, it marks it as visited by setting it to Integer.MAX_VALUE.
+6. The algorithm continues until it either finds the target element or visits all elements in the array without finding a match.
+
+Note: This implementation assumes that the array contains unique elements.
+ If the array can contain duplicate elements and you want to find the position of the first
+ occurrence of k, you can modify the code accordingly.
+
+Time Complexity:
+- The time complexity of the RandomSearch algorithm is dependent on the number of elements in the array and the position of the target element k. 
+- In the worst case scenario, where k is not present in the array or is present at the last position, the algorithm will have to visit all the elements before determining that k is not present.
+
+- Therefore, the worst-case time complexity of the RandomSearch algorithm is O(n), where n is the size of the array. 
+- This is because, in the worst case, the algorithm may need to iterate through all n elements of the array before determining that k is not present.
+
+- It's important to note that the average case time complexity can vary depending on the distribution of k within the array.
+- In the best case scenario, where k is present at the first position of the array, the algorithm will find the element in constant time O(1). 
+- However, on average, the time complexity will still be O(n) as the algorithm may need to visit a significant portion of the array before finding or determining the absence of k.
+
+-------------------------------------------------------------------------------
+
+Explanation: RandomSearchAlgorithmOptimized(int[] arr, int k)
+1. We import the necessary classes for the algorithm: HashSet to store visited indices, Random to generate random numbers, and Set as the interface for the visited indices collection.
+2. The randomSearchAlgorithm method takes an array arr and an element k to search for. It returns the index of the element if found, or -1 if not found.
+3. We create a Random object random to generate random numbers.
+4. We initialize the variable n with the length of the array arr.
+5. We create a HashSet called visitedIndices to keep track of visited indices. This set will store unique indices that have been visited.
+6. The main loop of the algorithm starts. It continues until the number of visited indices is equal to the length of the array, indicating that all indices have been visited.
+7. Inside the loop, we generate a random index randomIndex using random.nextInt(n). This selects a random index between 0 and n-1.
+8. We check if the randomIndex has already been visited by using the contains method of the visitedIndices set. If the index is already present in the set, it means we have visited it before, so we skip this iteration of the loop.
+9. If the randomIndex has not been visited, we add it to the visitedIndices set using the add method.
+10. We retrieve the element at the randomIndex from the array arr and store it in the randomElement variable.
+11. We check if the randomElement is equal to the target element k. If they match, we have found the element, so we return the randomIndex as the position of the element in the array.
+12. If the randomElement is not equal to k, we continue to the next iteration of the loop, generating a new random index.
+13. If the loop completes without finding the element, we reach the end of the loop, and we conclude that the element is not present in the array. In this case, we return -1.
+14. The optimized code eliminates unnecessary operations and uses a set to track visited indices, improving the efficiency of the algorithm.
+
+Time Complexity:
+- The time complexity of the optimized RandomSearch algorithm is O(n), where n is the length of the input array arr.
+- In the worst case scenario, where the element k is not present in the array and all indices have been visited, the algorithm will iterate through all n indices before determining that the element is not found.
+- Therefore, the maximum number of iterations required is equal to the number of elements in the array.
+- The random.nextInt(n) operation has a time complexity of O(1), as it simply generates a random number between 0 and n-1.
+- Since the loop iterates at most n times, and each iteration has a constant time complexity, the overall time complexity of the algorithm is O(n).
+
+
