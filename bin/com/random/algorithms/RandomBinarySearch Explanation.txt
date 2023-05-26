@@ -1,0 +1,13 @@
+Explanation:
+1. In this implementation, the RandomBinarySearch method takes an array arr and an element k as input. 
+2. It uses a Random object to generate a random index within the current range of the search space. 
+3. The algorithm starts with the entire array as the initial search space.
+4. At each iteration, a random index is selected, and the corresponding element is compared to the target element k. 
+5. If they are equal, the position of the element is returned. 
+6. If the random element is less than k, the search space is narrowed to the right half by updating the left index. 
+7. If the random element is greater than k, the search space is narrowed to the left half by updating the right index. 
+8. The process continues until either the element is found or the search space is exhausted (left > right), indicating that the element is not present in the array.
+
+Time Complexity:
+- The time complexity of this algorithm is O(log n), as it performs a binary search on the array. 
+- The randomness introduced by selecting a random index helps in achieving a balanced search and reduces the chance of encountering worst-case scenarios in a traditional binary search.
